@@ -585,17 +585,23 @@ img {
 
 .locations-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 28px;
 }
 
 .location-card {
     background-color: var(--blanco);
-    padding: 40px 32px;
+    padding: 36px 28px;
     border-radius: var(--radio);
     box-shadow: var(--sombra);
     transition: transform var(--transicion), box-shadow var(--transicion);
     border-top: 4px solid var(--dorado);
+    grid-column: span 2;
+}
+
+.location-card:nth-child(4),
+.location-card:nth-child(5) {
+    grid-column: span 3;
 }
 
 .location-card:hover {
@@ -625,6 +631,13 @@ img {
     font-size: 0.9rem;
     color: var(--texto-gris);
     margin-bottom: 20px;
+}
+
+.location-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
 }
 
 .location-link {
@@ -800,6 +813,21 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .locations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .location-card,
+    .location-card:nth-child(4),
+    .location-card:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .location-card:nth-child(5) {
+        grid-column: 1 / -1;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         max-width: 420px;
@@ -909,6 +937,10 @@ img {
 
     .locations-grid {
         grid-template-columns: 1fr;
+    }
+
+    .location-card:nth-child(5) {
+        grid-column: auto;
     }
 }
 
